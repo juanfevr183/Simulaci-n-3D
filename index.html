@@ -213,7 +213,7 @@ try{renderer=new T.WebGLRenderer({canvas:$('gl'),antialias:true});}catch(e){fail
 renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
 
 /* ---------- constantes del modelo (cm) ---------- */
-var PW=93, PH=68;                 // superficie: 930 x 680 mm
+var PW=68, PH=93;                 // superficie: 930 x 680 mm
 var SENS=8.4, MARGIN=0.8;         // distancia del sensor de borde al centro y margen de detección
 var ZT=PH/2-MARGIN, XT=PW/2-MARGIN;
 var SWATH=16, SHIFT=14.8, NPASS=6;
