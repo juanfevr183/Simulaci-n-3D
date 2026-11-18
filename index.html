@@ -217,7 +217,7 @@ var PW=93, PH=68;                 // superficie: 930 x 680 mm
 var SENS=8.4, MARGIN=0.8;         // distancia del sensor de borde al centro y margen de detección
 var ZT=PH/2-MARGIN, XT=PW/2-MARGIN;
 var SWATH=16, SHIFT=14.8, NPASS=6;
-var X0=-37, Z0=-(ZT-SENS)+0.5;    // posición inicial/segura
+var X0=37, Z0=-(ZT-SENS)+0.5;    // posición inicial/segura
 var VEL=12, OMEGA=1.7;            // cm/s y rad/s (a 1×)
 var THR=function(){return 30+45*Math.sin(tilt)};
 
@@ -437,7 +437,7 @@ function log(msg,k){var li=document.createElement('li');if(k)li.className=k;li.i
   li.lastChild.textContent=msg;var l=$('log');l.insertBefore(li,l.firstChild);while(l.children.length>40)l.removeChild(l.lastChild);}
 
 function buildPlan(){var p=[];for(var i=0;i<NPASS;i++){p.push({t:'line',th:(i%2)?Math.PI:0});
-  if(i<NPASS-1){p.push({t:'turn',th:Math.PI/2});p.push({t:'shift'});p.push({t:'turn',th:((i+1)%2)?Math.PI:0});}}
+  if(i<NPASS-1){p.push({t:'turn',th:-Math.PI/2});p.push({t:'shift'});p.push({t:'turn',th:((i+1)%2)?Math.PI:0});}}
   p.push({t:'home'});return p;}
 function passNo(){var n=0;for(var i=0;i<=si&&i<plan.length;i++)if(plan[i].t==='line')n++;return n;}
 function enterStep(){
